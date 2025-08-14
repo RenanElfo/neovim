@@ -15,6 +15,8 @@ require('gruvbox').setup({
   vim.opt.wrap = false
 
 -- Key maps
+  -- Visual Block Mode
+  vim.keymap.set('n', '<F9>', '<C-V>')
   -- Resource lua script
   vim.keymap.set('n', '<space><space>x', '<cmd>source %<CR>')
   vim.keymap.set('n', '<space>x', ':.lua<CR>')
