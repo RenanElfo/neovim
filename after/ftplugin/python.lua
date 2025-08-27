@@ -12,3 +12,9 @@ end
 -- General
   -- Add visual indicator of line limit
   vim.opt.colorcolumn = "80"
+
+-- Indentation
+vim.defer_fn(function()
+  if pcall(vim.cmd, "TSBufEnable indent") then
+  end
+end, 0)
