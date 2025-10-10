@@ -2,8 +2,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("lspconfig").rust_analyzer.setup {}
-      require("lspconfig").basedpyright.setup {}
+      vim.lsp.enable('rust_analyzer')
+      vim.lsp.enable('basedpyright')
     end,
   }
 }

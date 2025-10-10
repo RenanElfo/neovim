@@ -1,12 +1,17 @@
 -- General
   -- Add visual indicator of line limit
-  vim.opt.colorcolumn = "101"
+  vim.opt.colorcolumn = '101'
 
 -- Format on save
-  -- Set line numbers on start
-  vim.api.nvim_create_autocmd('BufWritePost', {
+  vim.api.nvim_create_autocmd('BufWritePre', {
     desc = 'Format code',
     callback = function()
-      vim.cmd('RustFmt')
+      local diagnostics = vim.diagnostic.get(
+        0,
+        { severity = vim.diagnostic.severity.ERROR }
+      )
+      if #diagnostics == 0 then
+        vim.cmd('silent! RustFmt')
+      end
     end,
   })
