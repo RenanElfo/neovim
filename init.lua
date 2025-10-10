@@ -76,13 +76,3 @@ require('gruvbox').setup({
       end,
     }
   )
-
--- Linter
-  -- Set line numbers on start
-  vim.api.nvim_create_autocmd('VimEnter', {
-    desc = 'Set line numbers',
-    callback = function()
-      vim.cmd('set number')
-    end,
-  })
-
