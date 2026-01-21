@@ -1,4 +1,4 @@
-require("lazy").setup({{}})
+-- require("lazy").setup({{}})
 return {
   {
     "nvim-treesitter/nvim-treesitter",
