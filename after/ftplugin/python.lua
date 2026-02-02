@@ -28,6 +28,7 @@ vim.api.nvim_create_autocmd(
         pattern = "*.py",
         group = "AutoFormat",
         callback = function()
+            vim.cmd("silent !uv run ruff check --fix --ignore F401 %")            
             vim.cmd("silent !uv run ruff format %")            
             vim.cmd("edit")
         end,
