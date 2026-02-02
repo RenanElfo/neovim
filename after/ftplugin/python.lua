@@ -18,3 +18,19 @@ vim.defer_fn(function()
   if pcall(vim.cmd, "TSBufEnable indent") then
   end
 end, 0)
+
+-- Format on save
+vim.api.nvim_create_augroup("AutoFormat", {})
+
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    {
+        pattern = "*.py",
+        group = "AutoFormat",
+        callback = function()
+            vim.cmd("silent !uv run ruff format %")            
+            vim.cmd("edit")
+        end,
+    }
+)
+
