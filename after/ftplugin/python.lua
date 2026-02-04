@@ -11,7 +11,7 @@ end
 
 -- General
   -- Add visual indicator of line limit
-  vim.opt.colorcolumn = "80"
+  vim.opt.colorcolumn = "89"
 
 -- Indentation
 vim.defer_fn(function()
@@ -34,4 +34,3 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
-
