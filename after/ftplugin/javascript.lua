@@ -17,19 +17,17 @@ vim.api.nvim_create_user_command('Prettier', function()
 end, {})
 
 -- Format on save
-  -- vim.api.nvim_create_autocmd('BufWritePost', {
-  --   desc = 'Format code',
-  --   callback = function()
-  --     local cmd
-  --
-  --     if vim.fn.executable('npx') == 1 then
-  --       cmd = 'npx prettier -w %'
-  --     else
-  --       cmd = 'prettier -w %'
-  --     end
-  --
-  --     vim.cmd('silent! !' ..cmd)
-  --     vim.cmd('edit!')
-  --
-  --   end,
-  -- })
+vim.api.nvim_create_augroup("AutoFormat", {})
+
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    {
+        pattern = "*.py",
+        group = "AutoFormat",
+        callback = function()
+            vim.cmd("silent !pnpm biome check --fix")            
+            -- vim.cmd("silent !uv run ruff format %")            
+            vim.cmd("edit")
+        end,
+    }
+)
