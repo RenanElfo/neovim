@@ -9,6 +9,12 @@ if vim.fn.executable(venv_python) == 1 then
   vim.g.python3_host_prog = venv_python
 end
 
+-- Add Run function for scripts
+vim.api.nvim_create_user_command('Run', function()
+  vim.cmd('!uv run main.py')
+  vim.cmd('edit!')
+end, {})
+
 -- General
   -- Add visual indicator of line limit
   vim.opt.colorcolumn = "89"
