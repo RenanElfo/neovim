@@ -2,6 +2,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      
       vim.lsp.enable('rust_analyzer') -- rust lsp
       vim.lsp.enable('ruff') -- python formatter/linter
       vim.lsp.enable('ty') -- python typechecker/lsp
