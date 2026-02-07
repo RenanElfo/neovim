@@ -9,12 +9,6 @@ if vim.fn.executable(venv_python) == 1 then
   vim.g.python3_host_prog = venv_python
 end
 
--- Add Run function for scripts
-vim.api.nvim_create_user_command('Run', function()
-  vim.cmd('!uv run main.py')
-  vim.cmd('edit!')
-end, {})
-
 -- General
   -- Add visual indicator of line limit
   vim.opt.colorcolumn = "89"
@@ -25,18 +19,8 @@ vim.defer_fn(function()
   end
 end, 0)
 
--- Format on save
-vim.api.nvim_create_augroup("AutoFormat", {})
-
-vim.api.nvim_create_autocmd(
-    "BufWritePost",
-    {
-        pattern = "*.py",
-        group = "AutoFormat",
-        callback = function()
-            vim.cmd("silent !uv run ruff check --fix --ignore F401 %")            
-            vim.cmd("silent !uv run ruff format %")            
-            vim.cmd("edit")
-        end,
-    }
-)
+-- Add Run function for scripts
+vim.api.nvim_create_user_command('Run', function()
+  vim.cmd('!uv run main.py')
+  vim.cmd('edit!')
+end, {})

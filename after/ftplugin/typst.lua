@@ -1,2 +1,2 @@
 vim.bo.textwidth = 80
-vim.keymap.set('n', '<leader>fmt', 'vapgq', { desc = 'Format paragraph' })
+vim.keymap.set('n', '<leader>fmt', function() vim.lsp.buf.format() end, { desc = 'Format document' })
