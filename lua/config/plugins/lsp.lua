@@ -8,6 +8,8 @@ return {
       vim.lsp.enable('ruff') -- python formatter/linter
       vim.lsp.enable('ty') -- python typechecker/lsp
       vim.lsp.enable('biome') -- js/ts batteries-included
+      vim.lsp.config('tinymist', { settings = { formatterMode = 'typstyle' } })
+      vim.lsp.enable('tinymist') -- typst lsp
     end,
   }
 }
