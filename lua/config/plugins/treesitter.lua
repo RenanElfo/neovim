@@ -16,6 +16,12 @@ return {
         -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
         auto_install = false,
 
+        defaults = {
+          preview = {
+            treesitter = false,
+          },
+        },
+
         highlight = {
           enable = true,
           -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
