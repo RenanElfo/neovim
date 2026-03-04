@@ -26,6 +26,7 @@ require('gruvbox').setup({
   vim.keymap.set('n', '<M-S-Q>', ':wq<CR>')
   -- Switch buffers
   vim.keymap.set('n', '<TAB>', '<C-W><C-W>')
+  vim.keymap.set('n', '<S-TAB>', '<C-W>W')
   -- Indent and unindent blocks of code
   vim.keymap.set('v', '<TAB>', '>gv')
   vim.keymap.set('v', '<S-TAB>', '<gv')
@@ -46,6 +47,8 @@ require('gruvbox').setup({
   vim.keymap.set('n', '<F3>', vim.lsp.buf.references, { desc = 'Find references' })
   -- Linter
   vim.keymap.set('n', '<leader>ll', vim.diagnostic.open_float, { desc = 'Open linter message' })
+  -- Oil
+  vim.keymap.set('n', '<leader>--', '<cmd>Oil<CR>')
 
 -- Visuals
   -- Set theme to dark themed gruvbox
