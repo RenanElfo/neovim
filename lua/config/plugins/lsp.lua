@@ -18,6 +18,7 @@ return {
       vim.lsp.enable('ruff') -- python formatter/linter
       vim.lsp.enable('ty') -- python typechecker/lsp
       vim.lsp.enable('biome') -- js/ts batteries-included
+      -- vim.lsp.enable('ts_ls') -- wrapper for tsserver
       vim.lsp.enable('sqruff') -- sql lsp/linter/formatter
       vim.lsp.config('tinymist', {
         settings = {
