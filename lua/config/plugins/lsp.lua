@@ -10,15 +10,21 @@ return {
       vim.api.nvim_create_autocmd('BufWritePre', {
         group = vim.api.nvim_create_augroup('my.lsp', {}),
         callback = function(args)
-          vim.lsp.buf.format({ bufnr = args.buf, timeout_ms = 1000 })
+          vim.lsp.buf.format({
+            bufnr = args.buf,
+            timeout_ms = 1000,
+            filter = function(client)
+              return client.name ~= 'vtsls'
+            end,
+          })
         end,
       })
 
       vim.lsp.enable('rust_analyzer') -- rust lsp
       vim.lsp.enable('ruff') -- python formatter/linter
       vim.lsp.enable('ty') -- python typechecker/lsp
-      vim.lsp.enable('biome') -- js/ts batteries-included
-      -- vim.lsp.enable('ts_ls') -- wrapper for tsserver
+      vim.lsp.enable('biome') -- js/ts formatting/linting
+      vim.lsp.enable('vtsls') -- js/ts type checking/navigation
       vim.lsp.enable('sqruff') -- sql lsp/linter/formatter
       vim.lsp.config('tinymist', {
         settings = {
