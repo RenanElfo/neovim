@@ -9,7 +9,7 @@ return {
   cmd = function(dispatchers, config)
     local root = config.root_dir or '.'
     local bin = root .. '/node_modules/.bin/vtsls'
-    return vim.lsp.rpc.start(bin, { '--stdio' }, dispatchers, {
+    return vim.lsp.rpc.start({ bin, '--stdio' }, dispatchers, {
       cwd = root,
     })
   end,

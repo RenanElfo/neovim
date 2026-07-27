@@ -27,6 +27,8 @@ require('gruvbox').setup({
   -- Switch buffers
   vim.keymap.set('n', '<TAB>', '<C-W><C-W>')
   vim.keymap.set('n', '<S-TAB>', '<C-W>W')
+  vim.keymap.set('n', '<space>o', '<C-o>')
+  vim.keymap.set('n', '<space>i', '<C-i>')
   -- Indent and unindent blocks of code
   vim.keymap.set('v', '<TAB>', '>gv')
   vim.keymap.set('v', '<S-TAB>', '<gv')
