@@ -26,6 +26,7 @@ return {
       vim.lsp.enable('biome') -- js/ts formatting/linting
       vim.lsp.enable('vtsls') -- js/ts type checking/navigation
       vim.lsp.enable('sqruff') -- sql lsp/linter/formatter
+      vim.lsp.enable('taplo') -- toml lsp/formatter
       vim.lsp.config('tinymist', {
         settings = {
           formatterMode = 'typstyle',
