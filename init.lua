@@ -1,6 +1,7 @@
 require('config.lazy')
 require('gruvbox').setup({
-  italic = { strings = false }
+  italic = { strings = false },
+  transparent_mode = true,
 })
 
 -- General
